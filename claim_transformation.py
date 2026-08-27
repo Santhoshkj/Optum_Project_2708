@@ -36,14 +36,17 @@ check_string_as_nan(claims_df)
 
 # COMMAND ----------
 
+claims.count()
+claims.groupby('Claim_Or_Rejected')[['claim_amount']].sum()
+claims.groupBy('Claim_Or_Rejected').count().show()
+claims.select("*").show(6)
+
+# COMMAND ----------
+
 claims_df = claims_df.replace("NaN",None)
 claims_df = claims_df.fillna({"Claim_Or_Rejected":"N"})
 claims_df = claims_df.withColumn("claim_amount", claims_df['claim_amount'].cast("integer"))
 claims_df = claims_df.withColumn("claim_date", claims_df['claim_date'].cast("date"))
-
-# COMMAND ----------
-
-display(claims_df.limit(5))
 
 # COMMAND ----------
 

@@ -42,6 +42,12 @@ hos_df = hos_df.replace("New Delhi", "Delhi")
 
 # COMMAND ----------
 
+hos_df.select("*").show()
+hos_df.count()
+hos_df.collect()
+
+# COMMAND ----------
+
 display(hos_df)
 
 # COMMAND ----------
